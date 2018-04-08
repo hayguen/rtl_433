@@ -18,9 +18,6 @@
 ########################################################################
 cmake_minimum_required(VERSION 2.8)
 project(rtl433 C)
-set (rtl433_VERSION_MAJOR 1)
-set (rtl433_VERSION_MINOR 0)
-
 
 # created and tested with
 # Qt 5.6.1 for Windows 32-bit (MinGW 4.9.2) from
@@ -125,7 +122,10 @@ add_executable(rtl_433
 	${RTL433BASE}/pulse_demod.c
 	${RTL433BASE}/pulse_detect.c
 	${RTL433BASE}/rtl_433.c
+	${RTL433BASE}/optparse.c
 	${RTL433BASE}/util.c
+
+	${RTL433BASE}/devices/flex.c
 	${RTL433BASE}/devices/acurite.c
 	${RTL433BASE}/devices/alecto.c
 	${RTL433BASE}/devices/ambient_weather.c
@@ -144,6 +144,8 @@ add_executable(rtl_433
 	${RTL433BASE}/devices/esperanza_ews.c
 	${RTL433BASE}/devices/fineoffset.c
 	${RTL433BASE}/devices/fineoffset_wh1080.c
+	${RTL433BASE}/devices/ft004b.c
+	${RTL433BASE}/devices/ge_coloreffects.c
 	${RTL433BASE}/devices/generic_remote.c
 	${RTL433BASE}/devices/generic_temperature_sensor.c
 	${RTL433BASE}/devices/gt_wt_02.c
@@ -153,6 +155,7 @@ add_executable(rtl_433
 	${RTL433BASE}/devices/intertechno.c
 	${RTL433BASE}/devices/kedsum.c
 	${RTL433BASE}/devices/lacrosse.c
+	${RTL433BASE}/devices/lacrosse_TX141TH_Bv2.c
 	${RTL433BASE}/devices/lacrossews.c
 	${RTL433BASE}/devices/lightwave_rf.c
 	${RTL433BASE}/devices/mebus.c
@@ -170,6 +173,7 @@ add_executable(rtl_433
 	${RTL433BASE}/devices/tfa_pool_thermometer.c
 	${RTL433BASE}/devices/valeo.c
 	${RTL433BASE}/devices/waveman.c
+	${RTL433BASE}/devices/wg_pb12v1.c
 	${RTL433BASE}/devices/wt450.c
 	${RTL433BASE}/devices/x10_rf.c
 	${RTL433BASE}/devices/s3318p.c
@@ -189,6 +193,28 @@ add_executable(rtl_433
 	${RTL433BASE}/devices/fineoffset_wh1050.c
 	${RTL433BASE}/devices/honeywell.c
 	${RTL433BASE}/devices/maverick_et73x.c
+	${RTL433BASE}/devices/rftech.c
+	${RTL433BASE}/devices/lacrosse_tx35.c
+	${RTL433BASE}/devices/vaillant_vrt340f.c
+	${RTL433BASE}/devices/ibis_beacon.c
+	${RTL433BASE}/devices/oil_standard.c
+	${RTL433BASE}/devices/tpms_citroen.c
+	${RTL433BASE}/devices/thermopro_tp11.c
+	${RTL433BASE}/devices/solight_te44.c
+	${RTL433BASE}/devices/smoke_gs558.c
+	${RTL433BASE}/devices/generic_motion.c
+	${RTL433BASE}/devices/tpms_toyota.c
+	${RTL433BASE}/devices/tpms_ford.c
+	${RTL433BASE}/devices/tpms_renault.c
+	${RTL433BASE}/devices/infactory.c
+	${RTL433BASE}/devices/fordremote.c
+	${RTL433BASE}/devices/philips.c
+	${RTL433BASE}/devices/nexa.c
+	${RTL433BASE}/devices/thermopro_tp12.c
+	${RTL433BASE}/devices/x10_sec.c
+	${RTL433BASE}/devices/interlogix.c
+	${RTL433BASE}/devices/dish_remote_6_3.c
+
 	${RTLLIBFILES}
 )
 

@@ -31,6 +31,10 @@
 #include "util.h"
 #include "optparse.h"
 
+#ifndef GIT_VERSION
+#include "git_version.h"
+#endif
+
 #define MAX_DATA_OUTPUTS 32
 
 static int do_exit = 0;
@@ -102,11 +106,15 @@ void usage(r_device *devices) {
     fprintf(stderr,
             "rtl_433, an ISM band generic data receiver for RTL2832 based DVB-T receivers\n"
 #ifdef GIT_VERSION
-#define STR_VALUE(arg) #arg
-#define STR_EXPAND(s) STR_VALUE(s)
+  #if !defined(HAVE_GIT_VER)
+    #define STR_VALUE(arg) #arg
+    #define STR_EXPAND(s) STR_VALUE(s)
             "version " STR_EXPAND(GIT_VERSION)
             " branch " STR_EXPAND(GIT_BRANCH)
             " at " STR_EXPAND(GIT_TIMESTAMP) "\n"
+  #else
+            "version " GIT_VERSION
+  #endif
 #endif
             "\nUsage:\t= Tuner options =\n"
             "\t[-d <RTL-SDR USB device index>] (default: 0)\n"
